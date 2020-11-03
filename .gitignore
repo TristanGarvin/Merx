@@ -1,0 +1,12 @@
+# Project files
+.env
+
+# Some Apple thing
+.DS_Store
+
+# VS Code things
+.vscode
+
+# NPM things
+node_modules
+.npm
