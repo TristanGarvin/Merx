@@ -1,21 +1,68 @@
+img {
+    width: 300px;
+    background-image: url("../images/logomakr.com:3PJpjV.png");
+    max-width: 100%;
+    height: auto;
+  }
+
 .container {
-    padding: 100px;
+    margin-top:50px;
+    padding-top: 20px;
+    padding-left: 60px;
+    padding-right: 60px;
+    padding-bottom: 30px;
     text-align: center;
-    
+    font-family: serif;
+    background-color: rgb(0, 0, 0);
+    color: lightgrey;
+    border-radius: 40px;
+}
+
+#titleName {
+    text-decoration: underline;
+    text-decoration-color: white;
+    font-size: 80px;
+    color: rgb(121, 121, 121);
+}
+
+svg {
+    color: white;
+}
+
+p {
+    color: rgb(189, 188, 188);
+    font-size: 40px;
+}
+
+p2 {
+    font-size: 20px;
+    float:left;
+    color: lightgrey;
+}
+
+p3 {
+    font-size: 20px;
+    float:right;
+    color: lightgrey;
+}
+
+#line {
+    background-color: lightgrey;
+}
+
+#form {
+    padding:20px;
 }
 
 .form-group {
     text-align: center;
+    font-size: 25px;
+    font-family: serif;
 
 }
 
 body {
-   
+    background-image: url("../images/finishline.jpg");
 }
 
-img {
-    border-radius: 4px;
-    width: 250px;
-    background-image: url("../images/logomakr.com:3PJpjV.png");
-  }
   
