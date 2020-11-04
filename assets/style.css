@@ -11,6 +11,13 @@
 
 body {
    
+};
+nav {
+    color: blue;
+}
+
+.navbar {
+    text-decoration-color: white;
 }
 
 img {
@@ -18,4 +25,6 @@ img {
     width: 250px;
     background-image: url("../images/logomakr.com:3PJpjV.png");
   }
-  
+  .table {
+      color: white;
+  }
