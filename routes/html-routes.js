@@ -30,9 +30,9 @@ module.exports = function (app) {
 
     app.get("/timer", function (req, res) {
         if (req.user) {
-            res.redirect("/timer");
+            return res.sendFile(path.join(__dirname, '../public/timer.html'));
         }
-        res.sendFile(path.join(__direname, "../public/login.html"));
+        res.sendFile(path.join(__dirname, "../public/login.html"));
     });
 
     app.get("/home", isAuthenticated, function (req, res) {

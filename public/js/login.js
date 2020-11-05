@@ -2,8 +2,8 @@ const form = document.getElementById('form');
 
 form.addEventListener('submit', e => {
     e.preventDefault();
-    const email = document.getElementById('exampleInputEmail1').value;
-    const password = document.getElementById('exampleInputPassword1').value;
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
 
     fetch('/api/login', {
         method: 'post',
