@@ -1,4 +1,5 @@
-const { Sequelize } = require('sequelize')
+const { Sequelize } = require('sequelize');
+const bcrypt = require('bcryptjs');
 
 function genGamerTag() {
     // Creates an array of 4 numbers and joins them as a string
@@ -40,6 +41,14 @@ module.exports = function (sequelize, DataTypes) {
                 fields: ['username', 'tag'],
             }
         ],
+    });
+
+    User.prototype.validatePassword = function (password) {
+        return bcrypt.compareSync(password, this.password);
+    }
+
+    User.addHook('beforeCreate', function (user) {
+        user.password = bcrypt.hashSync(user.password, 10);
     });
 
     return User;
