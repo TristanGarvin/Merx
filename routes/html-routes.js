@@ -3,15 +3,24 @@ const require = ("path");
 module.exports = function (app) {
 
     app.get("/", function (req, res) {
-        // If the user already has an account send them to the members page
+        // If the user already has an account send them to the home page
         if (req.user) {
             res.redirect("/home");
         }
         res.sendFile(path.join(__dirname, "../public/login.html"));
     });
 
+    app.get("/signup", function (req, res) {
+        // If the user already has an account send them to the home page
+        if (req.user) {
+            res.redirect("/home");
+        }
+        res.sendFile(path.join(__dirname, "../public/signup.html"));
+    });
+
+
     app.get("/login", function (req, res) {
-        // If the user already has an account send them to the members page
+        // If the user already has an account send them to the home page
         if (req.user) {
             res.redirect("/home");
         }
@@ -24,7 +33,6 @@ module.exports = function (app) {
         }
         res.sendFile(path.join(__direname, "../public/login.html"));
     });
-
 
     app.get("/home", isAuthenticated, function (req, res) {
         res.sendFile(path.join(__dirname, "../public/home.html"));
