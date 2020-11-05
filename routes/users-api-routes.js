@@ -1,3 +1,4 @@
+const passport = require("passport");
 var db = require("../models");
 
 module.exports = function (app) {
@@ -37,6 +38,10 @@ module.exports = function (app) {
         }).then(function (dbUser) {
             res.json(dbUser);
         });
+    });
+
+    app.post('/api/login', passport.authenticate('local'), (req, res) => {
+        res.json(req.user);
     });
 
 }
