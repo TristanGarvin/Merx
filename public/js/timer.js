@@ -1,7 +1,6 @@
 // requires easy timer
-const {Timer} = require('lib/easytimer/dist/easytimer.min.js');
 
-var timer = new Timer();
+var timer = new easytimer.Timer();
 $('#chronoExample .startButton').click(function () {
     timer.start();
 });
