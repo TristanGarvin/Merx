@@ -8,9 +8,9 @@ const app = express();
 
 const PORT = process.env.PORT || 8080;
 
-app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(express.static('public'));
 app.use(session({ secret: 'abc123', resave: true, saveUninitialized: true }));
 app.use(passport.initialize());
 app.use(passport.session());
