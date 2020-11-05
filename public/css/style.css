@@ -1,7 +1,7 @@
 
 img {
     width: 300px;
-    background-image: url("./images/logomakr.com:3PJpjV.png");
+    background-image: url("../images/logomakr.com:3PJpjV.png");
     max-width: 100%;
     height: auto;
   }
@@ -62,7 +62,7 @@ p3 {
 }
 
 body {
-    background-image: url("./images/finishline.jpg");
+    background-image: url("../images/finishline.jpg");
 }
 nav {
     color: blue;
