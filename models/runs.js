@@ -13,18 +13,20 @@ module.exports = function (sequelize, DataTypes) {
             field: 'time_ms',
         },
         dateCompleted: {
-            type: DataTypes.TIMESTAMP,
+            type: DataTypes.DATE,
             field: 'date_completed'
         }
     });
 
     Run.associate = function (models) {
-        Run.belongsTo(models.User, {
+        Run.belongsTo(models.Users, {
             foreignKey: {
                 field: 'user_id',
                 allowNull: false,
             },
             onDelete: 'cascade',
         });
-    } 
+    };
+
+    return Run;
 }
