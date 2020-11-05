@@ -60,8 +60,20 @@ p3 {
     font-family: serif;
 }
 
-body {
-    background-image: url("../images/finishline.jpg");
+};
+nav {
+    color: blue;
 }
 
-  
+.navbar {
+    text-decoration-color: white;
+}
+
+img {
+    border-radius: 4px;
+    width: 250px;
+    background-image: url("../images/logomakr.com:3PJpjV.png");
+  }
+  .table {
+      color: white;
+  }
