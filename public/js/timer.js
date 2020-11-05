@@ -1,3 +1,6 @@
+// requires easy timer
+const {Timer} = require('lib/easytimer/dist/easytimer.min.js');
+
 var timer = new Timer();
 $('#chronoExample .startButton').click(function () {
     timer.start();
@@ -26,3 +29,4 @@ timer.addEventListener('started', function (e) {
 timer.addEventListener('reset', function (e) {
     $('#chronoExample .values').html(timer.getTimeValues().toString());
 });
+
