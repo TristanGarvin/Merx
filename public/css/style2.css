@@ -1,0 +1,38 @@
+img {
+    border-radius: 4px;
+    width: 250px;
+    background-image: url("../images/logomakr.com:3PJpjV.png");
+  };
+
+.table {
+      color: white;
+  };
+
+h1 {
+    color: white;
+}
+  
+h3 {
+      color: white;
+  };
+  
+tr {
+    color: white;
+}  
+  
+.backgroundHome {
+    background: url("../images/finishline.jpg");
+    min-height: 100%;
+    min-width: 1024px;
+
+  width: 100%;
+  height: auto;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.navbar-nav.ml-md-auto li a {
+    color:white;
+}
