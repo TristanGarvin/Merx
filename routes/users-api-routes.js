@@ -14,7 +14,7 @@ module.exports = function (app) {
 
     // find one
     app.get("/api/users/:id", function (req, res) {
-        db.User.findOne({
+        db.Users.findOne({
             where: {
                 id: req.params.id
             },
@@ -25,13 +25,17 @@ module.exports = function (app) {
     });
 
     app.post("/api/users", function (req, res) {
-        db.User.create(req.body).then(function (dbUser) {
-            res.json(dbUser);
-        });
+        db.Users.create(req.body)
+            .then(function (dbUser) {
+                res.redirect(307, '/api/login');
+            })
+            .catch(function (err) {
+                res.status(401).json(err);
+            });
     });
 
     app.delete("/api/users/:id", function (req, res) {
-        db.User.destroy({
+        db.Users.destroy({
             where: {
                 id: req.params.id
             }
@@ -43,5 +47,4 @@ module.exports = function (app) {
     app.post('/api/login', passport.authenticate('local'), (req, res) => {
         res.json(req.user);
     });
-
 }
