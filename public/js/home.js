@@ -11,8 +11,8 @@ const {createGamePost} = gameService
 function getGameData() {
     axios.get(apiUrl + input.value)
         .then(function (response) {
-            gameName.innerHTML = response.data.forms[0].name;
-            gameImage.src = response.data.sprites.front_default;
+            gameName.innerHTML = response.data.games[0].name;
+            gameImage.src = response.data.poster.medium-cover;
         })
         .catch(function (error) {
             gameName.innerHTML = "(An error has occurred.)";
