@@ -17,7 +17,8 @@
     <hr class="my-4" id="line">
     <nav class="navbar navbar-dark bg-dark">
       <form class="form-inline" id="search-form">
-        <input class="form-control mr-md-2" type="search" class="game-search" aria-label="Search">
+        <input class="form-control mr-md-2" type="search" id="game-search" aria-label="Search">
+        <!-- <input type="text" class="form-control mr-md-2" type="search" id="category-search"> -->
         <button class="btn btn-dark my-2 my-sm-0" id="search-button" type="submit">Search Game
           <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-zoom-in" fill="currentColor"
             xmlns="http://www.w3.org/2000/svg">
@@ -54,7 +55,7 @@
       </form>
     </nav>
     <br>
-    <p class="gameName"></p>
+    <p id="gameName"></p>
     <img id="gameImg" src="./images/mario.jpg" class="rounded" alt="Game">
     <br><br>
     <p>World Records</p>
