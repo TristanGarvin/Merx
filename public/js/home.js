@@ -3,14 +3,16 @@ const apiUrl = "https://www.speedrun.com/api/v1/games?name=";
 // const categoryQuery = $('#category-search').val();
 const gameName = $('#gameName');
 const gameImage = $('#gameImg');
+const leaderboardEl = $('#board').children('table').children('tbody');
 
 $("#search-form").on("submit", getGameData);
 
 function getGameData(e) {
     e.preventDefault()
+    leaderboardEl.empty();
 
-    const gameQuery = $("#game-search").val();
-    $.get(apiUrl + gameQuery)
+    gameQuery = $("#game-search").val();
+    const game = $.get(apiUrl + gameQuery)
         .then(function (response) {
             console.log(response)
             const game = response.data[0];
@@ -24,10 +26,21 @@ function getGameData(e) {
                     const category = categoryData.data[0];
 
                     gameName.html(`${game.names.international} (${category.name})`);
-                    gameImage.src(poster);
+                    gameImage.attr('src', poster);
 
-                    // $.get(category.links.find(link => link.rel === 'leaderboard'))
-                    //     .then()
+                    $.get(category.links.find(link => link.rel === 'leaderboard').uri)
+                        .then(function (leaderboardResponse) {
+                            console.log(leaderboardResponse)
+                            const leaderboard = leaderboardResponse.data.runs;
+                            for (let i = 0; i < 5; i++) 
+                                leaderboardEl
+                                    .append(
+                                        $('<tr>')
+                                            .append($('<td>').text(leaderboard[i].place))
+                                            .append($('<td>').text(leaderboard[i].run.players[0].id))
+                                            .append($('<td>').text(`${leaderboard[i].run.times.primary_t} seconds`))
+                                    )
+                        })
                 });
         })
         .catch(function (error) {
