@@ -35,7 +35,7 @@ module.exports = function (app) {
         res.sendFile(path.join(__dirname, "../public/login.html"));
     });
 
-    app.get("/home", isAuthenticated, function (req, res) {
+    app.get("/home", isAuthenticated, function (req, res) { //add  isAuthenticated, back when finished
         res.sendFile(path.join(__dirname, "../public/home.html"));
     });
     
