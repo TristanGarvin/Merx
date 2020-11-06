@@ -1,35 +1,63 @@
+const express = require('express')
+const bodyParser = require('body-parser')
+const app = express()
+const routes = require('./routes')
 const axios = require("axios");
-// const express = require("express");
-// const app = express();
+const apiUrl = "https://www.speedrun.com/api/v1/games?name=";
+const input = document.querySelector(".game-input");
+const gameName = document.querySelector(".game-name");
+const gameImage = document.querySelector(".game-image");
+const {gameService} = require('../services/game-post')
+const {createGamePost} = gameService
 
-// app.use(express.json())
 
-const getRuns= async () => {
-    return await axios({
-        url: "https://www.speedrun.com/api/v1"
-    })
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+app.get('/', (req, res) => res.send('App is working'))
+
+app.use('/api', routes)
+
+app.listen(3000, () => console.log('Example app listening on port 3000!'))
+
+module.exports = {
+  app
 }
-(async() => {
-    const runs = await getRuns()
-    console.log(`runs: ${Object.entries(runs.data.links.uri).length}`)
-})()
+
+
+function getGameData() {
+    axios.get(apiUrl + input.value)
+        .then(function (response) {
+            gameName.innerHTML = response.data.forms[0].name;
+            gameImage.src = response.data.sprites.front_default;
+        })
+        .catch(function (error) {
+            gameName.innerHTML = "(An error has occurred.)";
+            gameImage.src = "";
+        });
+}
+
+var button = document.querySelector(".game-button");
+button.addEventListener("click", getGameData);
 
 
 
-// app.post("/home", (req, res) => {
-//     const name = req.body.name
-//     console.log(`Got ${name}`)
-// })
 
-// const server = app.listen(8080, () => {
-//     console.log("listening on port %s", server.address().port)
-
-//     ;(async () =>{
-//         axios.post('https://', {
-//             name: 'Ted'
-//         })
-//     })()
-// })
-
-
+const postGamePost = async (req, res, next) => {
+    const {user, content} = req.body
+    try {
+      await createGamePost(user, content)
+    //  service calls
+      res.sendStatus(201)
+      next()
+    } catch(e) {
+      console.log(e.message)
+      res.sendStatus(500) && next(error)
+    }
+  }
+  
+  module.exports = {
+    postGamePost
+  }
+  
 
