@@ -1,11 +1,11 @@
 // requires easy timer
 
 var timer = new easytimer.Timer();
-$('#chronoExample .startButton').click(function () {
+$('#startTimer').click(function () {
     timer.start();
 });
 
-$('#chronoExample .pauseButton').click(function () {
+$('#stopTimer').click(function () {
     timer.pause();
 });
 
@@ -18,14 +18,14 @@ $('#chronoExample .resetButton').click(function () {
 });
 
 timer.addEventListener('secondsUpdated', function (e) {
-    $('#chronoExample .values').html(timer.getTimeValues().toString());
+    $('#current-time').html(timer.getTimeValues().toString());
 });
 
 timer.addEventListener('started', function (e) {
-    $('#chronoExample .values').html(timer.getTimeValues().toString());
+    $('#current-time').html(timer.getTimeValues().toString());
 });
 
 timer.addEventListener('reset', function (e) {
-    $('#chronoExample .values').html(timer.getTimeValues().toString());
+    $('#current-time').html(timer.getTimeValues().toString());
 });
 
