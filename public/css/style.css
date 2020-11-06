@@ -1,17 +1,17 @@
-
 img {
     width: 300px;
-    background-image: url("../images/logomakr.com:3PJpjV.png");
+    background-image: url("./images/logomakr.com:3PJpjV.png");
     max-width: 100%;
     height: auto;
   }
 
 .container {
     margin-top:50px;
+    margin-bottom: 50px;
     padding-top: 20px;
     padding-left: 60px;
     padding-right: 60px;
-    padding-bottom: 30px;
+    padding-bottom:10px;
     text-align: center;
     font-family: serif;
     background-color: rgb(0, 0, 0);
@@ -30,25 +30,8 @@ svg {
     color: white;
 }
 
-p {
-    color: rgb(189, 188, 188);
-    font-size: 40px;
-}
-
-p2 {
-    font-size: 20px;
-    float:left;
-    color: lightgrey;
-}
-
-p3 {
-    font-size: 20px;
-    float:right;
-    color: lightgrey;
-}
-
 #line {
-    background-color: lightgrey;
+    background-color: darkgrey;
 }
 
 #form {
@@ -62,21 +45,37 @@ p3 {
 }
 
 body {
+    background-color: rgb(78, 78, 78);
     background-image: url("../images/finishline.jpg");
 }
-nav {
-    color: blue;
+
+.table, p {
+    color: white;
 }
 
-.navbar {
-    text-decoration-color: white;
-}
+@media only screen and (min-width: 750px) {
+    .mainRow {
 
-img {
-    border-radius: 4px;
-    width: 250px;
-    background-image: url("./images/logomakr.com:3PJpjV.png");
-  }
-  .table {
-      color: white;
-  }
+    }
+    #gameImg {
+        max-width:300px;
+    }
+    .values {
+        font-size: 70px;
+    }
+    p {
+        font-size: 35px;
+    }
+    
+    p2 {
+        font-size: 20px;
+        float:left;
+        color: lightgrey;
+    }
+    
+    p3 {
+        font-size: 20px;
+        float:right;
+        color: lightgrey;
+    }
+}
