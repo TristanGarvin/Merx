@@ -1,7 +1,7 @@
 img.displayed {
     border-radius: 4px;
     width: 250px;
-    background-image: url("../images/logomakr.com:3PJpjV.png");
+    background-image: url("/images/logomakr.com:3PJpjV.png");
     position: fixed;
     top: 50%;
     left: 50%;
@@ -14,10 +14,6 @@ img.displayed {
 
 h1.blocktext {
     color: white;
-    margin-left: auto;
-    margin-right: auto;
-    width: 8em
-
 };
   
 h3 {
@@ -29,7 +25,7 @@ tr {
 }  
   
 .backgroundHome {
-    background: url("../images/Checkered-flag-background.jpeg");
+    background: url("/images/background.jpeg");
     min-height: 100%;
     min-width: 1024px;
 
