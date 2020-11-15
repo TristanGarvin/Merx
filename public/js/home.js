@@ -17,17 +17,11 @@ function getGameData(e) {
             console.log(response)
             const game = response.data[0];
             const poster = game.assets['cover-large'].uri;
-            
-            // gameName.innerHTML = response.data.games[0].name;
-            // gameImage.src = response.data.poster.medium-cover;
-
             $.get(`https://www.speedrun.com/api/v1/games/${game.id}/categories`)
                 .then(function (categoryData) {
                     const category = categoryData.data[0];
-
                     gameName.html(`${game.names.international} (${category.name})`);
                     gameImage.attr('src', poster);
-
                     $.get(category.links.find(link => link.rel === 'leaderboard').uri)
                         .then(function (leaderboardResponse) {
                             console.log(leaderboardResponse)
